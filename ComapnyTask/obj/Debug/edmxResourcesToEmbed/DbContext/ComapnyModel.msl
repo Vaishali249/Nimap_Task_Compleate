@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbComapnyTaskModelStoreContainer" CdmEntityContainer="DbComapnyTaskEntities">
+    <EntitySetMapping Name="Categorytbls">
+      <EntityTypeMapping TypeName="DbComapnyTaskModel.Categorytbl">
+        <MappingFragment StoreEntitySet="Categorytbl">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTbls">
+      <EntityTypeMapping TypeName="DbComapnyTaskModel.ProductTbl">
+        <MappingFragment StoreEntitySet="ProductTbl">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SpProduct" FunctionName="DbComapnyTaskModel.Store.SpProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DbComapnyTaskModel.SpProduct_Result">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbComapnyTaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Categorytbl">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductTbl">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryId" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DbComapnyTaskEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorytbls" EntityType="Self.Categorytbl" />
+    <EntitySet Name="ProductTbls" EntityType="Self.ProductTbl" />
+    <FunctionImport Name="SpProduct" ReturnType="Collection(DbComapnyTaskModel.SpProduct_Result)" />
+  </EntityContainer>
+  <ComplexType Name="SpProduct_Result">
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CategoryId" Nullable="true" />
+    <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>
